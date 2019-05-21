@@ -6,7 +6,7 @@
 /*   By: aben-azz <aben-azz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:27:48 by aben-azz          #+#    #+#             */
-/*   Updated: 2019/05/15 06:00:39 by tlechien         ###   ########.fr       */
+/*   Updated: 2019/05/21 16:13:26 by midrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,15 @@ static void check_flags(char **av, int ac)
 			g_shell->print_flags |= PRINT_REDIR;
 }
 
+static void init_fd_table()
+{
+	int i;
+
+	i = -1;
+	while (++i < 10)
+		g_shell->fd_table[i] = dup(i);
+}
+
 int				main(int ac, char **av, char **env)
 {
 	t_term	term;
@@ -120,6 +129,7 @@ int				main(int ac, char **av, char **env)
 		return (-1);
 	if (ac > 1)
 		check_flags(av, ac);
+	init_fd_table();
 	while ("21sh")
 	{
 		if ((string = read_line(g_shell->tcap)) == NULL)
