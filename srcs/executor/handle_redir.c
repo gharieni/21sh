@@ -6,7 +6,7 @@
 /*   By: midrissi <midrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 23:28:47 by midrissi          #+#    #+#             */
-/*   Updated: 2019/05/21 17:30:29 by midrissi         ###   ########.fr       */
+/*   Updated: 2019/05/21 17:54:33 by midrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static t_list *next_cmd(t_list *redir)
 	return (redir);
 }
 
-static int		handle_great_and(t_redir *redir)
+static int		handle_redir_and(t_redir *redir)
 {
 	int fd;
 
@@ -112,8 +112,8 @@ void			handle_redir()
 			fd = handle_hdoc(redir->content);
 			dup2(tempfd, STDOUT_FILENO);
 		}
-		else if (red->op_type == GREAT_AND)
-			fd = handle_great_and(red);
+		else if (red->op_type == GREAT_AND || red->op_type == LESS_AND)
+			fd = handle_redir_and(red);
 		else
 			fd = open_file(redir->content);
 		if (fd != -1)

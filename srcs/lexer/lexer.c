@@ -6,7 +6,7 @@
 /*   By: midrissi <midrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 18:51:02 by midrissi          #+#    #+#             */
-/*   Updated: 2019/05/21 17:28:23 by midrissi         ###   ########.fr       */
+/*   Updated: 2019/05/21 17:43:38 by midrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ static const t_oplist existing_token[] =
 	{"7>&", 3, TOKEN_REDIR, GREAT_AND},
 	{"8>&", 3, TOKEN_REDIR, GREAT_AND},
 	{"9>&", 3, TOKEN_REDIR, GREAT_AND},
+	{"0<&", 3, TOKEN_REDIR, LESS_AND},
+	{"1<&", 3, TOKEN_REDIR, LESS_AND},
+	{"2<&", 3, TOKEN_REDIR, LESS_AND},
+	{"3<&", 3, TOKEN_REDIR, LESS_AND},
+	{"4<&", 3, TOKEN_REDIR, LESS_AND},
+	{"5<&", 3, TOKEN_REDIR, LESS_AND},
+	{"6<&", 3, TOKEN_REDIR, LESS_AND},
+	{"7<&", 3, TOKEN_REDIR, LESS_AND},
+	{"8<&", 3, TOKEN_REDIR, LESS_AND},
+	{"9<&", 3, TOKEN_REDIR, LESS_AND},
 	{"0>", 2, TOKEN_REDIR, GREAT},
 	{"1>", 2, TOKEN_REDIR, GREAT},
 	{"2>", 2, TOKEN_REDIR, GREAT},
